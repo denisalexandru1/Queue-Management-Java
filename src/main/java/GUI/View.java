@@ -8,7 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class View extends JFrame {
-    public JTextArea queuesPane = new JTextArea(30,100);
+    public JTextArea queuesPane = new JTextArea(10,100);
     public JScrollPane scroll;
     private JTextField textFieldC = new JTextField();
     private JTextField textFieldQ = new JTextField();
@@ -58,7 +58,7 @@ public class View extends JFrame {
 
         //JFrame frame = new JFrame("Queues");
 
-        queuesPane.setPreferredSize(new Dimension(6000, 6000));
+        queuesPane.setPreferredSize(new Dimension(6000, 1000));
         //queuesPane.setEditable(false);
         //queuesPane.setCaretPosition(queuesPane.getDocument().getLength());
 

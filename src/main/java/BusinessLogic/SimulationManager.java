@@ -152,7 +152,7 @@ public class SimulationManager implements Runnable{
             this.crtTime = 0;
             createFile();
             Double avgSer = this.getTotalSerTime();
-
+            String finalstring = new String();
             while(crtTime <= this.timeLimit){
                 if(((this.generatedTasks.isEmpty()) && (this.scheduler.areAllQueuesEmpty())))
                     break;
@@ -164,7 +164,8 @@ public class SimulationManager implements Runnable{
                     } else newList.add(t);
                 }
                 String s = this.getQueuesInfo();
-                view.queuesPane.append(s);
+                view.queuesPane.setText(s);
+                finalstring += s;
                 updatePeakHour();
                 this.crtTime++;
                 this.generatedTasks = newList;
@@ -179,8 +180,9 @@ public class SimulationManager implements Runnable{
             view.queuesPane.append("\nAverage Service time: " + avgSer +'\n');
             view.queuesPane.append("\nPeak hour: " + this.peakHour + '\n');
             String s = view.queuesPane.getText();
+            finalstring += s;
             //s = s + ("\nAverage Waiting time: " + this.scheduler.getAvgTime() +'\n');
-            appendFile(s);
+            appendFile(finalstring);
     }
 }
 
